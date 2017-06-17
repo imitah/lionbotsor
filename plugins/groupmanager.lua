@@ -3326,7 +3326,7 @@ end
      return "پیام مبنی بر درباره گروه ثبت شد"
       end
   end
-  if ((matches[1] == "about" and not Clang) or (matches[1] == "درباره" and Clang)) and msg.to.type == "chat" and is_owner(msg) then
+  if ((matches[1] == "about" and not Clang) or (matches[1] == "درباره" and Clang)) and msg.to.type == "chat" then
  if not data[tostring(chat)]['about'] then
      if not lang then
      about = "_No_ *description* _available_"
@@ -3347,13 +3347,13 @@ end
   if ((matches[1] == 'filterlist' and not Clang) or (matches[1] == "لیست فیلتر" and Clang)) and is_mod(msg) then
     return filter_list(msg)
   end
-if ((matches[1] == "settings" and not Clang) or (matches[1] == "تنظیمات" and Clang)) and is_mod(msg) then
+if ((matches[1] == "settings" and not Clang) or (matches[1] == "تنظیمات" and Clang)) then
 return group_settings(msg, target)
 end
-if ((matches[1] == "mutelist" and not Clang) or (matches[1] == "لیست بیصدا" and Clang)) and is_mod(msg) then
+if ((matches[1] == "mutelist" and not Clang) or (matches[1] == "لیست بیصدا" and Clang)) then
 return mutes(msg, target)
 end
-if ((matches[1] == "modlist" and not Clang) or (matches[1] == "لیست مدیران" and Clang)) and is_mod(msg) then
+if ((matches[1] == "modlist" and not Clang) or (matches[1] == "لیست مدیران" and Clang)) then
 return modlist(msg)
 end
 if ((matches[1] == "ownerlist" and not Clang) or (matches[1] == "لیست مالکان" and Clang)) and is_owner(msg) then
@@ -3425,7 +3425,7 @@ end
 if (matches[1] == "help" and not Clang) and is_mod(msg) then
 if not lang then
 text = [[
-*Beyond Bot Commands:*
+*LION Bot Commands:*
 
 *!setowner* `[username|id|reply]` 
 _Set Group Owner(Multi Owner)_
@@ -3577,7 +3577,7 @@ _Its Means, Only Group_ *Moderators/Owners* _Can Use It!_
 elseif lang then
 
 text = [[
-_دستورات ربات بیوند:_
+_دستورات ربات لیون:_
 
 *!setowner* `[username|id|reply]`
 _انتخاب مالک گروه(قابل انتخاب چند مالک)_
@@ -3738,7 +3738,7 @@ end
 if (matches[1] == "راهنما" and Clang) and is_mod(msg) then
 if not lang then
 text = [[
-*Beyond Bot Commands:*
+*LION Bot Commands:*
 
 *مالک* `[username|id|reply]` 
 _Set Group Owner(Multi Owner)_
@@ -3892,7 +3892,7 @@ _Its Means, Only Group_ *Moderators/Owners* _Can Use It!_
 elseif lang then
 
 text = [[
-*دستورات ربات بیوند:*
+*دستورات ربات لیون:*
 
 *مالک* `[یوزرنیم|ایدی|ریپلی]` 
 _انتخاب مالک گروه(قابل انتخاب چند مالک)_
@@ -4041,6 +4041,9 @@ _ثبت پیام خوش آمد گویی_
 *راهنمای ابزار*
 _نمایش راهنمای ابزار_
 
+*انلاینی*
+_آگاهی از آنلاین بودن ربات_
+
 *راهنمای سرگرمی*
 _نمایش راهنمای سرگرمی_
 
@@ -4050,6 +4053,14 @@ _این راهنما فقط برای مدیران/مالکان گروه میبا
 end
 return text..msg_caption
 end
+
+if matches[1] == "انلاینی" and is_mod(msg) then
+text5 = [[
+✅من همیشه بیدارم. خیالت راحت حواسم به گروه هست😎
+]]
+return text5 
+end
+
 --------------------- Welcome -----------------------
 	if ((matches[1] == "welcome" and not Clang) or (matches[1] == "خوشامد" and Clang)) and is_mod(msg) then
 		if ((matches[2] == "enable" and not Clang) or (matches[2] == "فعال" and Clang)) then
@@ -4298,11 +4309,11 @@ patterns ={
 '^(فیلتر) (.*)$',
 '^(حذف فیلتر) (.*)$',
 '^(خوشامد) (.*)$',
-'^(تنظیم خوشامد) (.*)$',
+'^(تنظیم خوشآمد) (.*)$',
 
 
 },
 run=run,
 pre_process = pre_process
 }
---end groupmanager.lua #beyond team#
+--end groupmanager.lua #LION team#
