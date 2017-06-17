@@ -88,6 +88,9 @@ function create_config( )
 		"plugins",
 		"tools",
 		"fun",
+		"del",
+		"lock-fosh",
+		"info",
 
 	},
     sudo_users = {123456789, 987654321, sudo_id},
