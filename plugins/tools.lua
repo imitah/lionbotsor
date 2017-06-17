@@ -1,5 +1,5 @@
 --Begin Tools.lua :)
-local SUDO = 987654321 -- put Your ID here! <===
+local SUDO = 79391132 -- put Your ID here! <===
 function exi_files(cpath)
     local files = {}
     local pth = cpath
@@ -1072,21 +1072,21 @@ end
 
 if ((matches[1] == 'createsuper' and not Clang) or (matches[1] == "ساخت سوپرگروه" and Clang)) and is_admin(msg) then
 local text = matches[2]
+tdcli.createNewChannelChat(text, 1, '', dl_cb, nil)
+   if not lang then 
+return '_SuperGroup Has Been Created!_'
+  else
+return '_سوپر گروه ساخته شد!_'
+   end
+end
+
+if ((matches[1] == 'tosuper' and not Clang) or (matches[1] == "تبدیل به سوپرگروه" and Clang)) and is_admin(msg) then
+local text = matches[2]
 tdcli.createNewChannelChat(text, 1, '#Reborn', (function(b, d) tdcli.addChatMember(d.id_, msg.from.id, 0, dl_cb, nil) end), nil)
    if not lang then 
 return '_SuperGroup Has Been Created and_ [`'..msg.from.id..'`] _Joined To This SuperGroup._'
   else
 return '_سوپرگروه ساخته شد و_ [`'..msg.from.id..'`] _به گروه اضافه شد._'
-   end
-end
-
-if ((matches[1] == 'tosuper' and not Clang) or (matches[1] == "تبدیل به سوپرگروه" and Clang)) and is_admin(msg) then
-local id = msg.to.id
-tdcli.migrateGroupChatToChannelChat(id, dl_cb, nil)
-  if not lang then
-return '_Group Has Been Changed To SuperGroup!_'
-  else
-return '_گروه به سوپر گروه تبدیل شد!_'
    end
 end
 
@@ -1265,7 +1265,7 @@ if matches[1] == "helptools" and not Clang and is_mod(msg) then
 if not lang then
 text = [[
 
-_Sudoer And Admins Beyond Bot Help :_
+_Sudoer And Admins LION Bot Help :_
 
 *!visudo* `[username|id|reply]`
 _Add Sudo_
@@ -1377,7 +1377,7 @@ tdcli.sendMessage(msg.chat_id_, 0, 1, text, 1, 'md')
 else
 
 text = [[
-_راهنمای ادمین و سودو های ربات بیوند:_
+_راهنمای سودو و ادمینهای ربات لیون:_
 
 *!visudo* `[username|id|reply]`
 _اضافه کردن سودو_
@@ -1493,7 +1493,7 @@ if matches[1] == "راهنمای ابزار" and Clang and is_mod(msg) then
 if not lang then
 text = [[
 
-_Sudoer And Admins Beyond Bot Help :_
+_Sudoer And Admins LION Bot Help :_
 
 *سودو* `[username|id|reply]`
 _Add Sudo_
@@ -1603,7 +1603,7 @@ tdcli.sendMessage(msg.chat_id_, 0, 1, text, 1, 'md')
 else
 
 text = [[
-_راهنمای ادمین و سودو های ربات بیوند:_
+_راهنمای سودو و ادمینهای ربات لیون:_
 
 *سودو* `[username|id|reply]`
 _اضافه کردن سودو_
